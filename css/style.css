@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+main {
+    min-height: 100%;
+    padding-bottom: 275px;
+}
+.logo {
+    height: 70px;
+    width: 125px;
+}
+.card-img {
+    height: 150px;
+    width: auto;
+}
+.card-img_director {
+    height: 250px;
+    width: auto;
+}
+.advertising
+{
+    height: 490px;
+    background-color: #dedede;
+}
+.footer
+{
+    display: block;
+    background-color: #dedede;
+    height: 250px;
+    padding: 80px 0 0 0;
+    margin-top: -250px;
+}
+.footer_3
+{
+    height: 100px;
+}

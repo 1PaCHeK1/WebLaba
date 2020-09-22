@@ -1,0 +1,307 @@
+<!-- Тема: Фильмотека. список фильмов, список клиентов, список библиотекарей, журнал выдачи фильмов. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Фильмотека. Главная страница</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <img class="logo" src="img/logo.png" alt="Logo">
+                <a class="navbar-brand ml-2" href="index.html">Самый лучший сайт</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Фильмы
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Комедии</a>
+                          <a class="dropdown-item" href="#">Ужасы</a>
+                          <a class="dropdown-item" href="#">Семейные</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="Films.html">Другое</a>
+                        </div>
+                      </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="DirectorList.html">Режиссеры</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Войти</a>
+                      </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Найти фильм" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+                  </form>
+                </div>
+              </nav>
+        </header>
+
+        <main class="">
+            <h3 class="mt-5">Топ 3 фильма:</h3>
+            <div class="row">
+                <div class="col-9">
+                    <div id="accordion1">
+        
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" >
+                            <div class="card-header" id="heading1">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/2.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse1" class="collapse " aria-labelledby="heading1" data-parent="#accordion1">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse1" >
+                            <div class="card-header" id="heading1">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/3.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse2" class="collapse " aria-labelledby="heading1" data-parent="#accordion1">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse1" >
+                            <div class="card-header" id="heading1">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/2.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse3" class="collapse " aria-labelledby="heading1" data-parent="#accordion1">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3 advertising">
+
+                </div>
+            </div>
+
+            <h3 class="mt-5">Рекомедуемые:</h3>
+            <div class="row">
+                <div class="col-9">
+                    <div id="accordion11">
+
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse11" aria-expanded="true" aria-controls="collapse11" >
+                            <div class="card-header" id="heading11">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/2.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordion11">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse22" aria-expanded="true" aria-controls="collapse22" >
+                            <div class="card-header" id="heading22">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/3.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse22" class="collapse " aria-labelledby="heading22" data-parent="#accordion11">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-1" data-toggle="collapse" data-target="#collapse33" aria-expanded="true" aria-controls="collapse33" >
+                            <div class="card-header" id="heading33">
+                                <div class="row">
+                                    <div class="col-3 text-center"><img class="card-img" src="img/2.jpg" alt="Фильм"></div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="#">
+                                                    <p>Название фильма</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a href="#">
+                                                    <p>Режиссер: (Имя)</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p>Год выпуска: (Дата)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapse33" class="collapse" aria-labelledby="heading33" data-parent="#accordion11">
+                                <div class="card-body">
+                                    Описание фильма
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 advertising">
+
+                </div>
+            </div>
+
+        </main>
+        
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <img class="logo" src="img/logo.png" alt="Logo">
+                </div>
+                <div class="col-5">
+                    <h5><a href="#">Техническая поддержка</a></h5>
+                    <br>
+                    <h5><a href="#">Лицензионное соглашение</a></h5>
+                </div>
+                <div class="footer_3 col-4">
+                    <br><br><br><br>
+                    <h4>8 (800) 555 35-35</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
