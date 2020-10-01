@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <img class="logo" src="img/logo.png" alt="Logo">
+                <img class="logo" src="/assets/img/logo.png" alt="Logo">
             </div>
             <div class="col-5">
                 <h5><a href="#">Техническая поддержка</a></h5>

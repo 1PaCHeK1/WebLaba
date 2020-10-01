@@ -1,4 +1,10 @@
-<!-- Список купленных фильмов -->
+<?php
+session_start();
+if (!$_SESSION['user'] or $_SESSION['user']['status'] != 'admin' ) {
+    header('Location: /');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

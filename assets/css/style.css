@@ -46,3 +46,14 @@ main {
     border: black 1px solid;
     border-radius: 25px;
 }
+.my-avatar {
+    width: 200px;
+}
+.film-btn-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.film-btn-flex button {
+    margin: 20px 5px 0 5px;
+}

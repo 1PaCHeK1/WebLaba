@@ -18,7 +18,7 @@ $auth = isset($_SESSION['user']) ? true : false;
 
     <div class="container">
         <main class="">
-            <h3 class="mt-5">Топ 3 фильма:</h3>
+            <h3 class="mt-5">Топ рейтинг:</h3>
             <div class="row">
                 <div class="col-9">
                     <div id="accordion1">
@@ -26,6 +26,9 @@ $auth = isset($_SESSION['user']) ? true : false;
                         <?php require("vendor/modules/film.php"); ?>
                         <?php require("vendor/modules/film.php"); ?>
                         <?php require("vendor/modules/film.php"); ?>
+                        <?php require("vendor/modules/film.php"); ?>
+                        <?php require("vendor/modules/film.php"); ?>
+                        <?php require("vendor/modules/film.php"); ?>
 
                     </div>
                 </div>
@@ -33,23 +36,6 @@ $auth = isset($_SESSION['user']) ? true : false;
 
                 </div>
             </div>
-
-            <h3 class="mt-5">Рекомедуемые:</h3>
-            <div class="row">
-                <div class="col-9">
-                    <div id="accordion11">
-
-                        <?php require("vendor/modules/film.php"); ?>
-                        <?php require("vendor/modules/film.php"); ?>
-                        <?php require("vendor/modules/film.php"); ?>
-                        
-                    </div>
-                </div>
-                <div class="col-3 advertising">
-
-                </div>
-            </div>
-
         </main>
         
     </div>

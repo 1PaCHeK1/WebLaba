@@ -1,3 +1,8 @@
+<?php
+session_start();
+$auth = isset($_SESSION['user']) ? true : false; 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -40,7 +40,9 @@ if (mysqli_num_rows($check_user) > 0) {
         "id" => $user['id'],
         "full_name" => $user['full_name'],
         "avatar" => $user['avatar'],
-        "email" => $user['email']
+        "email" => $user['email'],
+        "login" => $user['login'],
+        "status" => $user['status']
     ];
 
     $response = [
@@ -48,7 +50,6 @@ if (mysqli_num_rows($check_user) > 0) {
     ];
 
     echo json_encode($response);
-
 } else {
 
     $response = [

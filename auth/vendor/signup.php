@@ -48,10 +48,6 @@ if ($status == '') {
     $error_fields[] = 'status';
 }
 
-if (!isset($_FILES['avatar'])) {
-    $error_fields[] = 'avatar';
-}
-
 if (!empty($error_fields)) {
     $response = [
         "status" => false,
@@ -67,15 +63,21 @@ if (!empty($error_fields)) {
 
 if ($password === $password_confirm) {
 
-    $path = 'uploads/' . time() . $_FILES['avatar']['name'];
-    if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
-        $response = [
-            "status" => false,
-            "type" => 2,
-            "message" => "Ошибка при загрузке аватарки",
-        ];
-        echo json_encode($response);
+    $path = "";
+    if(isset($_FILES['avatar']))
+    {
+        $path = 'uploads/' . time() . $_FILES['avatar']['name'];
+        if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
+            $response = [
+                "status" => false,
+                "type" => 2,
+                "message" => "Ошибка при загрузке аватарки",
+            ];
+            echo json_encode($response);
+        }
     }
+    else
+        $path = null;
 
     $password = md5($password);
 

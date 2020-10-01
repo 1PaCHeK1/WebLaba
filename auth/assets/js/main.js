@@ -1,6 +1,6 @@
 /*
     Авторизация
- */
+*/
 
 $('.login-btn').click(function (e) {
     e.preventDefault();
@@ -20,7 +20,7 @@ $('.login-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = 'profile.php';
+                document.location.href = '/profile.php';
             } else {
 
                 if (data.type === 1) {

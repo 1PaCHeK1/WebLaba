@@ -1,4 +1,10 @@
-<!-- Список купленных фильмов -->
+<?php
+session_start();
+if (!$_SESSION['user']) {
+    header('Location: /');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +21,23 @@
 
     <main>
         <div class="container">
+            <h3>Мой Аккаунт</h3>
+            <div class="row">
+              <div class="col-4">
+                <img class="my-avatar" src="<?= "auth/".$_SESSION['user']['avatar'] ?>" alt="">
+              </div>
+              <div class="col-6">
+                <h2>Вы: <?= $_SESSION['user']['full_name'] ?></h2>
+                <h2>Логин: <?= $_SESSION['user']['login'] ?></h2>
+                <h2>Email: <?= $_SESSION['user']['email'] ?></h2>
+                <h2>Ваш статус: <?= $_SESSION['user']['status'] ?></h2>
+                <div class="row">
+                  <div class="col">
+                      <a class="btn btn-danger" href="auth/vendor/logout.php" class="logout">Выход</a>
+                  </div>
+                </div>
+              </div>
+            </div>
             <h4 class="mt-5">Купленные фильмы:</h4>
             <table class="table table-borderless mt-5">
                 <thead>
