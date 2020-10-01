@@ -35,3 +35,14 @@ main {
 {
     height: 100px;
 }
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+.auth-wrap {
+    padding: 25px;
+    border: black 1px solid;
+    border-radius: 25px;
+}
