@@ -10,7 +10,7 @@ $('.login-btn').click(function (e) {
         password = $('input[name="password"]').val();
 
     $.ajax({
-        url: 'vendor/signin.php',
+        url: '/vendor/auth/signin.php',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -18,7 +18,7 @@ $('.login-btn').click(function (e) {
             password: password
         },
         success (data) {
-
+            console.log(data);
             if (data.status) {
                 document.location.href = '/profile.php';
             } else {
@@ -32,6 +32,10 @@ $('.login-btn').click(function (e) {
                 $('.msg').removeClass('none').text(data.message);
             }
 
+        },
+        error(data) {
+            console.log(data);
+
         }
     });
 
@@ -43,7 +47,7 @@ $('.login-btn').click(function (e) {
 
 let avatar = false;
 
-$('input[name="avatar"]').change(function (e) {
+$('.form-reg input[name="avatar"]').change(function (e) {
     avatar = e.target.files[0];
 });
 
@@ -56,11 +60,11 @@ $('.register-btn').click(function (e) {
 
     $(`input`).removeClass('error');
 
-    let login = $('input[name="login"]').val(),
-        password = $('input[name="password"]').val(),
-        full_name = $('input[name="full_name"]').val(),
-        email = $('input[name="email"]').val(),
-        password_confirm = $('input[name="password_confirm"]').val();
+    let login = $('.form-reg input[name="login"]').val(),
+        password = $('.form-reg input[name="password"]').val(),
+        full_name = $('.form-reg input[name="full_name"]').val(),
+        email = $('.form-reg input[name="email"]').val(),
+        password_confirm = $('.form-reg input[name="password_confirm"]').val();
 
     let formData = new FormData();
     formData.append('login', login);
@@ -72,7 +76,7 @@ $('.register-btn').click(function (e) {
     formData.append('status', 'client');
 
     $.ajax({
-        url: 'vendor/signup.php',
+        url: '/vendor/auth/signup.php',
         type: 'POST',
         dataType: 'json',
         processData: false,
@@ -82,14 +86,13 @@ $('.register-btn').click(function (e) {
         success (data) {
 
             if (data.status) {
-                document.location.href = 'index.php';
+                document.location.href = '/';
             } else {
 
                 if (data.type === 1) {
                     data.fields.forEach(function (field) {
                         $(`input[name="${field}"]`).addClass('error');
                     });
-
                 }
                 
                 $('.msg').removeClass('none').text(data.message);

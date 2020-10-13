@@ -66,8 +66,8 @@ if ($password === $password_confirm) {
     $path = "";
     if(isset($_FILES['avatar']))
     {
-        $path = 'uploads/' . time() . $_FILES['avatar']['name'];
-        if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../' . $path)) {
+        $path = 'vendor/uploads/' . time() . $_FILES['avatar']['name'];
+        if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../../' . $path)) {
             $response = [
                 "status" => false,
                 "type" => 2,

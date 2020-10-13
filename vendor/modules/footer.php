@@ -16,3 +16,15 @@
         </div>
     </div>
 </footer>
+
+<?php
+if (isset($js_default))
+    foreach($js_default as $item)
+        echo "<script src=\"$item\"></script>";
+if (isset($js_linked))
+    foreach($js_linked as $item)
+        echo "<script src=\"$item\"></script>";
+?>
+
+</body>
+</html>

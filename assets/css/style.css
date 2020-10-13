@@ -57,3 +57,44 @@ main {
 .film-btn-flex button {
     margin: 20px 5px 0 5px;
 }
+
+
+
+.form-reg a {
+    color: #7c9ab7;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-reg input {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 2px solid #e3e3e3;
+    outline: none;
+}
+
+.form-reg button {
+    padding: 10px;
+    background: #e3e3e3;
+    border: unset;
+    cursor: pointer;
+}
+
+.form-reg .error {
+    border-bottom: 2px solid #ff4332;
+}
+
+.form-reg .msg {
+    border: 2px solid #80093a;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.form-reg .none {
+    display: none;
+}
+.form-reg .logout {
+    color: #b7625c;
+}
