@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-require_once 'connect.php';
+require_once '../backend/connect.php';
+
 
 $full_name = $_POST['full_name'];
 $login = $_POST['login'];
@@ -66,7 +67,7 @@ if ($password === $password_confirm) {
     $path = "";
     if(isset($_FILES['avatar']))
     {
-        $path = 'vendor/uploads/' . time() . $_FILES['avatar']['name'];
+        $path = 'server/uploads/' . time() . $_FILES['avatar']['name'];
         if (!move_uploaded_file($_FILES['avatar']['tmp_name'], '../../' . $path)) {
             $response = [
                 "status" => false,

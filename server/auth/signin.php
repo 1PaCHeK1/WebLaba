@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'connect.php';
+require_once '../backend/connect.php';
 
 $login = $_POST['login'];
 $password = $_POST['password'];

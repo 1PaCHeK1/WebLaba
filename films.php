@@ -1,11 +1,19 @@
 <?php
-    require_once("vendor/backend/constantes.php");
     session_start();
-    
+    require_once("server/backend/constantes.php");
+    require_once("server/query/select.php");
+    require_once("server/backend/connect.php");
     $title = "Фильмы";
+
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $films = SelectDb($connect, "Film", $where=NULL, $start=5*$page-5, $end=5*$page);
+    
+    if($films == [])
+        header("Location: /films.php?page=".($page > 1 ? $page-1 : 1));
+
 ?>
 
-<?php require_once("vendor/modules/header.php"); ?>
+<?php require_once("server/modules/header.php"); ?>
 
 <main>
     <div class="container">
@@ -13,12 +21,15 @@
         <div class="row">
             <div class="col-9">
                 <div id="accordion1">
-                    
-                    <?php require("vendor/modules/film.php"); ?>
-                    <?php require("vendor/modules/film.php"); ?>
-                    <?php require("vendor/modules/film.php"); ?>
-                    <?php require("vendor/modules/film.php"); ?>
-
+                    <?php
+                        foreach($films as $item)
+                        {
+                            $director = SelectDb($connect, "Director", $where=['id' => $item['director_id']])[0];
+                            $item['director'] = $director['first_name'].' '.$director['last_name'];
+                            
+                            require("server/modules/film.php");
+                        }
+                    ?>
                 </div>
             </div>
             <div class="col-3">
@@ -56,13 +67,13 @@
         <div class="row d-flex justify-content-center mt-4">
             <nav aria-label="Page navigation" class="text-center">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="./films.php?page=<?= $page==1 ? $page : $page-1 ?>">Previous</a></li>
+                    <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li> -->
+                    <li class="page-item"><a class="page-link" href="./films.php?page=<?= $page!=100 ? $page+1 : $page ?>">Next</a></li>
                 </ul>
             </nav>
         </div>
@@ -70,4 +81,4 @@
     </div>
 </main>
 
-<?php require_once("vendor/modules/footer.php"); ?>
+<?php require_once("server/modules/footer.php"); ?>

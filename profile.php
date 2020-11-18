@@ -1,13 +1,16 @@
 <?php
-  require_once("vendor/backend/constantes.php");
+  require_once("server/backend/constantes.php");
+  require_once("server/query/select.php");
+  require_once("server/backend/connect.php");
+
   session_start();
   if (!$_SESSION['user'])
       header('Location: /');
 
-  $title = "Список купленных фильмов";
+  $title = "Мой профиль. Фильмотека";
 ?>
 
-<?php require_once("vendor/modules/header.php"); ?>
+<?php require_once("server/modules/header.php"); ?>
 
 <main>
     <div class="container">
@@ -23,7 +26,7 @@
             <h2>Ваш статус: <?= $_SESSION['user']['status'] ?></h2>
             <div class="row">
               <div class="col">
-                  <a class="btn btn-danger" href="/vendor/auth/logout.php" class="logout">Выход</a>
+                  <a class="btn btn-danger" href="/server/auth/logout.php" class="logout">Выход</a>
               </div>
             </div>
           </div>
@@ -33,37 +36,26 @@
             <thead>
               <tr>
                 <th scope="col">№</th>
-                <th scope="col">Название</th>
+                <th scope="col">Название фильма</th>
                 <th scope="col">Дата покупки</th>
-                <th scope="col">Квитанция</th>
                 <th scope="col">Стоимость &#8381</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Название1</td>
-                <td>01.01.2000</td>
-                <td><a href="#">Квитанция</a></td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Название2</td>
-                <td>01.01.2000</td>
-                <td><a href="#">Квитанция</a></td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Название3</td>
-                <td>01.01.2000</td>
-                <td><a href="#">Квитанция</a></td>
-                <td>100</td>
-              </tr>
+              <?php
+                foreach(SelectDb($connect, "Receipt", $where=['user_id' => $_SESSION['user']['id']]) as $item)
+                {
+                  echo ("<tr>
+                          <th scope=\"row\">".$item['id']."</th>
+                          <td>".SelectDb($connect, "Film", $where=['id' => $item['film_id']], $start=0, $end=1)[0]['name']."</td>
+                          <td>".$item['data']."</td>
+                          <td>".$item['price']."</td>
+                        </tr>");
+                }
+              ?>
             </tbody>
           </table>
     </div>
 </main>
 
-<?php require_once("vendor/modules/footer.php"); ?>
+<?php require_once("server/modules/footer.php"); ?>

@@ -10,7 +10,7 @@ $('.login-btn').click(function (e) {
         password = $('input[name="password"]').val();
 
     $.ajax({
-        url: '/vendor/auth/signin.php',
+        url: '/server/auth/signin.php',
         type: 'POST',
         dataType: 'json',
         data: {
@@ -76,7 +76,7 @@ $('.register-btn').click(function (e) {
     formData.append('status', 'client');
 
     $.ajax({
-        url: '/vendor/auth/signup.php',
+        url: '/server/auth/signup.php',
         type: 'POST',
         dataType: 'json',
         processData: false,

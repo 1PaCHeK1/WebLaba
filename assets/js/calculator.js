@@ -40,7 +40,7 @@ $('.take_result_php').click(function (e) {
     formData.append('InputValue',  $('#InputValue').val());
 
     $.ajax({
-        url: '/vendor/backend/calc.php',
+        url: '/server/backend/calc.php',
         type: 'POST',
         dataType: 'json',
         processData: false,

@@ -1,12 +1,12 @@
 <?php
-    require_once("vendor/backend/constantes.php");
+    require_once("server/backend/constantes.php");
     session_start();
     if (isset($_SESSION['user']) and $_SESSION['user'])
         header('Location: profile.php');
     $title="Регистрация";
 ?>
 
-<?php require_once("vendor/modules/header.php"); ?>
+<?php require_once("server/modules/header.php"); ?>
 
 <main>
     <div class="container mt-5">
@@ -51,4 +51,4 @@
     </div>
 </main>
     
-<?php require_once("vendor/modules/footer.php"); ?>
+<?php require_once("server/modules/footer.php"); ?>

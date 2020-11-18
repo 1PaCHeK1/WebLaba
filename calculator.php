@@ -1,14 +1,14 @@
 <?php
-    require_once("vendor/backend/constantes.php");
+    require_once("server/backend/constantes.php");
     session_start();
 
     $title = "Калькулятор";
     $js_linked = [ "assets/js/calculator.js" ];
 ?>
 
-<?php require_once("vendor/modules/header.php"); ?>
+<?php require_once("server/modules/header.php"); ?>
 
-<main>
+<main>    
     <div class="container">
         <form class="w-50 ml-auto mr-auto mt-5">
             <label for="InputValue">Введите значение</label>
@@ -62,4 +62,4 @@
 
 </main>
 
-<?php require_once("vendor/modules/footer.php"); ?>
+<?php require_once("server/modules/footer.php"); ?>

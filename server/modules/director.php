@@ -8,32 +8,30 @@
             <div class="col-8">
                 <div class="row text-center">
                     <h5>
-                        Имя режисcера
+                        <?= $item['name']; ?>
                     </h5>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <p>Награды: (N)</p>
+                        <p>Награды: <?= $item['awards']; ?></p>
                     </div>
                     <div class="col-6">
-                        <p>Кол-во фильмов: (M)</p>
+                        <p>Кол-во фильмов: <?= count($item['films']); ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <table class="table">
                         <tbody>
-                          <tr>
-                            <th scope="row">№1</th>
-                            <td>Фильм1</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">№2</th>
-                            <td>Фильм2</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">№3</th>
-                            <td>Фильм3</td>
-                          </tr>
+                          <?php
+                            $i = 1;
+                            foreach($item['films'] as $film)
+                            {
+                              echo ("<tr>
+                                      <th scope=\"row\">№".$i++."</th>
+                                      <td>".$film['name']."</td>
+                                    </tr>");
+                            }
+                          ?>
                         </tbody>
                       </table>
                 </div>
@@ -47,7 +45,7 @@
     </div>
     <div id="collapse<?= $time_id ?>" class="collapse" aria-labelledby="heading1" data-parent="#accordion1">
         <div class="card-body">
-            Биография
+            <?= $item['descript']; ?>
         </div>
     </div>
 </div>

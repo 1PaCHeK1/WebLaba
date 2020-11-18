@@ -1,11 +1,13 @@
 <?php
-    require_once("vendor/backend/constantes.php");
+    require_once("server/backend/constantes.php");
+    require_once("server/query/select.php");
+    require_once("server/backend/connect.php");
     session_start();
 
     $title = "Фильмотека. Главная страница";
 ?>
 
-<?php require_once("vendor/modules/header.php"); ?>
+<?php require_once("server/modules/header.php"); ?>
 
 <main>
     <div class="container">
@@ -14,8 +16,12 @@
             <div class="col-9">
                 <div id="accordion1">
                     <?php
-                        for($i = 0; $i < 10; $i++)
-                            require("vendor/modules/film.php");
+                        foreach(SelectDb($connect, "Film", $where=NULL, $start=0, $end=5) as $item)
+                        {
+                            $director = SelectDb($connect, "Director", $where=['id' => $item['director_id']], $start=0, $end=1)[0];
+                            $item['director'] = $director['first_name'].' '.$director['last_name'];
+                            require("server/modules/film.php");
+                        }
                     ?>
                 </div>
             </div>
@@ -26,4 +32,4 @@
     </div>
 </main>
         
-<?php require_once("vendor/modules/footer.php"); ?>
+<?php require_once("server/modules/footer.php"); ?>

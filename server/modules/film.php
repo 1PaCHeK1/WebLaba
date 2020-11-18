@@ -9,24 +9,24 @@
                 <div class="row">
                     <div class="col text-center">
                         <a href="#">
-                            <p>Название фильма</p>
+                            <p><?= $item['name'] ?></p>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-4">
                         <a href="#">
-                            <p>Режиссер: (Имя)</p>
+                            <p>Режиссер: <?= $item['director'] ?></p>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <p>Год выпуска: (Дата)</p>
+                        <p>Год выпуска: <?= $item['data'] ?></p>
                     </div>
                     <div class="col-6 film-btn-flex">
                         <button class="btn btn-primary" data-toggle="collapse" data-target="#collapse<?= $time_id ?>" aria-expanded="true" aria-controls="collapse<?= $time_id ?>">Описание</button>
-                        <button class="btn btn-success">Купить</button>
+                        <button class="btn btn-success">Купить за <?= $item['price'] ?></button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
     </div>
     <div id="collapse<?= $time_id ?>" class="collapse " aria-labelledby="heading1" data-parent="#accordion1">
         <div class="card-body">
-            Описание фильма
+        <?= $item['descript'] ?>
         </div>
     </div>
 </div>
