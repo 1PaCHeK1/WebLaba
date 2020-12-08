@@ -3,8 +3,8 @@
 session_start();
 require_once '../backend/connect.php';
 
-$login = $_POST['login'];
-$password = $_POST['password'];
+$login = mysqli_real_escape_string($connect, $_POST['login']);
+$password = mysqli_real_escape_string($connect, $_POST['password']);
 
 $error_fields = [];
 

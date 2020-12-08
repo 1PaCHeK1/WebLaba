@@ -4,12 +4,12 @@ session_start();
 require_once '../backend/connect.php';
 
 
-$full_name = $_POST['full_name'];
-$login = $_POST['login'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$password_confirm = $_POST['password_confirm'];
-$status = $_POST['status'];
+$full_name = mysqli_real_escape_string($connect, $_POST['full_name']);
+$login = mysqli_real_escape_string($connect, $_POST['login']);
+$email = mysqli_real_escape_string($connect, $_POST['email']);
+$password = mysqli_real_escape_string($connect, $_POST['password']);
+$password_confirm = mysqli_real_escape_string($connect, $_POST['password_confirm']);
+$status = mysqli_real_escape_string($connect, $_POST['status']);
 
 $check_login = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login'");
 if (mysqli_num_rows($check_login) > 0) {

@@ -1,10 +1,15 @@
 <?php
-require_once 'list_models.php';
-require_once '../backend/connect.php';
-
-function DeleteIdDb($model_name, $id=null, $isPost=false)
+function DeleteIdDb($connect, $model_name, $id=null)
 {
+    $model_fields = [
+        "User" => ['users', [['receipt', 'user_id']]],
+        "Film" => ['film',  [['receipt', 'film_id']]],
+        "Director" => ['director', [['film', 'director_id']]],
+        "Receipt" => ['receipt', []]
+    ];
+
     $table_name = $model_fields[$model_name][0];
-    mysqli_query($connect, "DELETE FROM `$table_name` WHERE id=".strval($isPost ? $_POST['id'] : $id));
+
+    mysqli_query($connect, "DELETE FROM `$table_name` WHERE `id` = ".mysqli_real_escape_string($connect, $id));
 }
 ?>

@@ -41,7 +41,14 @@
                         <a class="nav-link" href="/directors.php">Режиссеры</a>
                     </li>
                     <li class="nav-item">
-                        
+                        <?php
+                            if(isset($_SESSION['user']) && $_SESSION['user']['status'] == 'admin')
+                            {
+                                echo ("
+                                    <a class=\"nav-link\" href=\"/admin_panel.php\">АП</a>
+                                ");
+                            }
+                        ?>
                     </li>
                 </ul>
                 

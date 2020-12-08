@@ -31,7 +31,6 @@ $('.login-btn').click(function (e) {
 
                 $('.msg').removeClass('none').text(data.message);
             }
-
         },
         error(data) {
             console.log(data);

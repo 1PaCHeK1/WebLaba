@@ -24,9 +24,10 @@
             <h2>Логин: <?= $_SESSION['user']['login'] ?></h2>
             <h2>Email: <?= $_SESSION['user']['email'] ?></h2>
             <h2>Ваш статус: <?= $_SESSION['user']['status'] ?></h2>
-            <div class="row">
+            <div class="row mt-3">
               <div class="col">
                   <a class="btn btn-danger" href="/server/auth/logout.php" class="logout">Выход</a>
+                  <a class="btn btn-warning" href="/update.php?model=User&object_id=<?= $_SESSION['user']['id'] ?>" class="logout">Изменить</a>
               </div>
             </div>
           </div>
