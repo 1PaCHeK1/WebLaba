@@ -52,8 +52,8 @@
                     </li>
                 </ul>
                 
-                <form class="form-inline my-2 my-lg-0 mr-5">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Найти фильм" aria-label="Search">
+                <form method="GET" action="search.php" class="form-inline my-2 my-lg-0 mr-5">
+                            <input name="query" class="form-control mr-sm-2" type="search" placeholder="Найти фильм" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
                 </form>
 

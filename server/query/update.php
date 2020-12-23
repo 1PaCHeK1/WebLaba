@@ -21,11 +21,10 @@ function UpdateDb($connect, $model_name, $fields=[], $files=[])
         {
             $field_update[$field] = mysqli_real_escape_string($connect, $fields[$field]);
         }
-        if(isset($files[$field]))
+        if(isset($files[$field]) && $files[$field]['type'] == 'image/jpeg' && 500000 < $files[$field]['size'] && $files[$field]['size'] > 0 )
         {
-            return "adffghf";
-            $path = 'server/uploads/' . time() . $files[$field]['name'];
-            move_uploaded_file($files[$field]['tmp_name'],$path);
+            $path = 'server/uploads/' . time() . mysqli_real_escape_string($connect, $files[$field]['name']);
+            move_uploaded_file($files[$field]['tmp_name'], $path);
             $field_update[$field] = $path;
         }
     }

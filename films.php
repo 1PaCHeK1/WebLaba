@@ -6,7 +6,12 @@
     $title = "Фильмы";
 
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $films = SelectDb($connect, "Film", $where=NULL, $start=5*$page-5, $end=5*$page);
+    $where = [];
+    if(isset($_GET['director']) && $_GET['director'] != "")
+    {
+        $where['director_id'] = $_GET['director'];
+    }
+    $films = SelectDb($connect, "Film", $where=$where, $start=5*$page-5, $end=5*$page);
     
     if($films == [])
         header("Location: /films.php?page=".($page > 1 ? $page-1 : 1));

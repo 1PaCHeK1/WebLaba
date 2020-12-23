@@ -25,7 +25,7 @@ function SelectDb($connect, $model_name, $where=NULL, $start = 0, $end = PHP_INT
         $where_str = [];
         foreach(array_keys($where) as $item)
         {
-            array_push($where_str, "`".mysqli_real_escape_string($connect, $item)."` = ".mysqli_real_escape_string($connect, $where[$item]));
+            array_push($where_str, "`".mysqli_real_escape_string($connect, $item)."` = '".mysqli_real_escape_string($connect, $where[$item])."'");
         }
 
         $response = mysqli_query($connect, "SELECT "
